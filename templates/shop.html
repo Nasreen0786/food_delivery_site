@@ -23,7 +23,8 @@
                 <div class="row g-4">
                     <div class="col-xl-3">
                         <div class="input-group w-100 mx-auto d-flex">
-                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                            <input type="search" id="search-input" class="form-control p-3" placeholder="keywords">
+                            <div id="results"></div>
                             <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
                         </div>
                     </div>
@@ -350,5 +351,18 @@
         </div>
     </div>
 </div>
+<script>
+document.getElementById("search-input").addEventListener("keyup", function() {
+    fetch(`/search/?q=` + this.value)
+        .then(res => res.json())
+        .then(data => {
+            let html = "";
+            data.results.forEach(item => {
+                html += `<p>${item.name}</p>`;
+            });
+            document.getElementById("results").innerHTML = html;
+        });
+});
+</script>
 <!-- Fruits Shop End-->
 {% endblock body %}

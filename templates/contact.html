@@ -55,25 +55,30 @@
                 <div class="col-lg-7">
                     <form action="/contact" method="post" id="contactForm">
                         {% csrf_token %}
-
-                        <!-- Name -->
-                        <input type="text" name="name" id="name"
-                            class="w-100 form-control border-0 py-3 mb-2"
-                            placeholder="Your Name" required>
-                        <small id="nameError" style="color:red; display:none;">Name is required</small>
-
-                        <!-- Email -->
-                        <input type="email" name="email" id="email"
-                            class="w-100 form-control border-0 py-3 mb-2"
-                            placeholder="Enter Your Email" required>
-                        <small id="emailError" style="color:red; display:none;">Invalid email</small>
-
-                        <!-- Message -->
-                        <textarea name="description" id="message"
-                            class="w-100 form-control border-0 mb-2"
-                            rows="5" placeholder="Your Message" required></textarea>
-                        <small id="messageError" style="color:red; display:none;">Message is required</small>
-
+                        <div class="mb-4 position-relative">
+                            <input type="text" name="name" id="name"
+                                class="w-100 form-control border-0 py-3"
+                                placeholder="Your Name" required>
+                            <small id="nameError" class="text-danger position-absolute" style="bottom:-18px; display:none;">
+                                Name is required
+                            </small>
+                        </div>
+                        <div class="mb-4 position-relative">
+                            <input type="email" name="email" id="email"
+                                class="w-100 form-control border-0 py-3"
+                                placeholder="Enter Your Email" required>
+                            <small id="emailError" class="text-danger position-absolute" style="bottom:-18px; display:none;">
+                                Invalid email
+                            </small>
+                        </div>
+                        <div class="mb-4 position-relative">
+                            <textarea name="description" id="message"
+                                class="w-100 form-control border-0"
+                                rows="5" placeholder="Your Message" required></textarea>
+                            <small id="messageError" class="text-danger position-absolute" style="bottom:-18px; display:none;">
+                                Message is required
+                            </small>
+                        </div>
                         <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary"
                             type="submit">Submit</button>
                     </form>

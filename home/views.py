@@ -1,7 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from home.models import Contact
 
-# Create your views here.
 def index(request):
     # return HttpResponse("Here is teh first page")
     return render(request, 'index.html')

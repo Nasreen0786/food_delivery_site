@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 {% block body %}
-
-<!-- Modal Search Start -->
 <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content rounded-0">
@@ -12,17 +10,14 @@
             </div>
             <div class="modal-body d-flex align-items-center">
                 <div class="input-group w-75 mx-auto d-flex">
-                    <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                    <input type="search" class="form-control p-3" placeholder="keywords"
+                        aria-describedby="search-icon-1">
                     <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Modal Search End -->
-
-
-<!-- Single Page Header start -->
 <div class="container-fluid page-header py-5">
     <h1 class="text-center text-white display-6">Contact</h1>
     <ol class="breadcrumb justify-content-center mb-0">
@@ -31,10 +26,6 @@
         <li class="breadcrumb-item active text-white">Contact</li>
     </ol>
 </div>
-<!-- Single Page Header End -->
-
-
-<!-- Contact Start -->
 <div class="container-fluid contact py-5">
     <div class="container py-5">
         <div class="p-5 bg-light rounded">
@@ -42,40 +33,42 @@
                 <div class="col-12">
                     <div class="text-center mx-auto" style="max-width: 700px;">
                         <h1 class="text-primary">Get in touch</h1>
-                        <h4 class="text-center">Receive messages instantly with our PHP and Ajax contact form - available in the <a href="https://htmlcodex.com/downloading/?item=2824">Pro Version</a> only.</h4>
+                        <h4 class="text-center">Receive messages instantly with our PHP and Ajax contact form -
+                            available in the <a href="https://htmlcodex.com/downloading/?item=2824">Pro Version</a>
+                            only.</h4>
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="h-100 rounded">
-                        <iframe class="rounded w-100" 
-                        style="height: 400px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd" 
-                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe class="rounded w-100" style="height: 400px;"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1694259649153!5m2!1sen!2sbd"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <form action="/contact" method="post" id="contactForm">
                         {% csrf_token %}
                         <div class="mb-4 position-relative">
-                            <input type="text" name="name" id="name"
-                                class="w-100 form-control border-0 py-3"
+                            <input type="text" name="name" id="name" class="w-100 form-control border-0 py-3"
                                 placeholder="Your Name" required>
-                            <small id="nameError" class="text-danger position-absolute" style="bottom:-18px; display:none;">
+                            <small id="nameError" class="text-danger position-absolute"
+                                style="bottom:-18px; display:none;">
                                 Name is required
                             </small>
                         </div>
                         <div class="mb-4 position-relative">
-                            <input type="email" name="email" id="email"
-                                class="w-100 form-control border-0 py-3"
+                            <input type="email" name="email" id="email" class="w-100 form-control border-0 py-3"
                                 placeholder="Enter Your Email" required>
-                            <small id="emailError" class="text-danger position-absolute" style="bottom:-18px; display:none;">
+                            <small id="emailError" class="text-danger position-absolute"
+                                style="bottom:-18px; display:none;">
                                 Invalid email
                             </small>
                         </div>
                         <div class="mb-4 position-relative">
-                            <textarea name="description" id="message"
-                                class="w-100 form-control border-0"
-                                rows="5" placeholder="Your Message" required></textarea>
-                            <small id="messageError" class="text-danger position-absolute" style="bottom:-18px; display:none;">
+                            <textarea name="description" id="message" class="w-100 form-control border-0" rows="5"
+                                placeholder="Your Message" required></textarea>
+                            <small id="messageError" class="text-danger position-absolute"
+                                style="bottom:-18px; display:none;">
                                 Message is required
                             </small>
                         </div>
@@ -110,23 +103,20 @@
         </div>
     </div>
 </div>
-<!-- Contact End -->
-
 <script>
-document.querySelectorAll("input, textarea").forEach(f => {
-    f.addEventListener("keydown", function(e) {
-        if ((e.ctrlKey || e.metaKey) && (e.key === "v" || e.keyCode === 86)) {
+    document.querySelectorAll("input, textarea").forEach(f => {
+        f.addEventListener("keydown", function (e) {
+            if ((e.ctrlKey || e.metaKey) && (e.key === "v" || e.keyCode === 86)) {
+                e.preventDefault();
+            }
+        });
+        f.addEventListener("paste", function (e) {
             e.preventDefault();
-        }
-    });
-    f.addEventListener("paste", function(e) {
-        e.preventDefault();
-    });
-    f.addEventListener("contextmenu", function(e) {
-        e.preventDefault();
-    });
+        });
+        f.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
 
-});
+    });
 </script>
-<!-- Contact End -->
 {% endblock body %}

@@ -95,4 +95,11 @@ http://127.0.0.1:8000/
 
 ## Acknowledgment
 
+Admin Credentials
+
+- Username: admin@gmail.com
+- Password: Admin@123
+
+## Acknowledgment
+
 Frontend template was sourced from an open online resource and adapted into Django for learning purposes.

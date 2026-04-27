@@ -195,7 +195,7 @@
                     <div class="col-lg-9">
                         <div class="row g-4 justify-content-center">
                             {% for product in products %}
-                            <div class="col-md-6 col-lg-6 col-xl-4">
+                            <div class="col-md-6 col-lg-6 col-xl-4 product-item" data-name="{{ product.name }}">
                                 <div class="rounded position-relative fruite-item">
                                     <div class="fruite-img">
                                         <img src="{{ product.image.url }}" class="img-fluid w-100 rounded-top" alt="">
@@ -256,4 +256,20 @@
         </div>
     </div>
 </div>
+<script>
+    document.getElementById("search-input").addEventListener("keyup", function () {
+        let value = this.value.toLowerCase();
+        let products = document.querySelectorAll(".product-item");
+
+        products.forEach(function (item) {
+            let name = item.getAttribute("data-name").toLowerCase();
+
+            if (name.includes(value)) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    });
+</script>
 {% endblock body %}

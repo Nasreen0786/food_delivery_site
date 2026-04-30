@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from home.models import Contact
-from .models import Product
+from .models import Product, Category
 from django.core.paginator import Paginator
 
 def index(request):
@@ -10,10 +10,16 @@ def index(request):
 
 def shop(request):
     products = Product.objects.all()
+    categories = Category.objects.all()
     paginator = Paginator(products, 6)
     page_number = request.GET.get('page')
+    
     products = paginator.get_page(page_number)
-    return render(request, 'shop.html', {'products': products})
+    # return render(request, 'shop.html', {'products': products, 'categories': Category})
+    return render(request, 'shop.html', {
+        'products': products,
+        'categories': categories
+    })
 
 def cart(request):
     return render(request, 'cart.html')
